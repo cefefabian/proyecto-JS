@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Pacifico&family=Poppins:wght@200&family=Roboto:ital@1&family=Rubik&display=swap');
+
+
+
+body {
+background: #DFC2F2;
+background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
+background-attachment: fixed;	
+background-size: cover;
+  
+
+}
+.caja{
+background-color: #8b0186c5;
+height: 100px;
+position: absolute;
+border-radius: 20px;
+top: 5%;
+left: 20%;
+right: 20%;
+align-items: center;
+display: flex;
+height: 100px;
+justify-content: space-around;
+
+-webkit-box-shadow: 0px 22px 81px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 22px 81px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 22px 81px 0px rgba(0,0,0,0.75);
+
+}   
+.caja h1{
+color: #ffcaca;
+opacity: 70%;
+font-weight: 600;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Rubik', sans-serif;
+
+}
+main{
+display: grid; 
+grid-auto-columns: 1fr; 
+grid-template-columns: 1fr 1fr; 
+grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
+gap: 1px 1px; 
+grid-template-areas: 
+  "1 2"
+  "3 4"
+  "5 6"
+  "7 8"
+  "9 10"
+  "11 12"; 
+  gap: 50px;
+  width: 1000px;
+  margin: 250px auto;
+  
+  }
+.btn2{
+  background-image: url(	https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-shopping-cart.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 70%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  transition: all 0.3s ease-out;
+  
+}
+.btn2:hover{
+transform: scale(1.1);
+opacity: 90%;
+
+}
+
+#contenedor{
+  box-shadow: 0 15px 30px 1px grey;
+  background: rgba(255, 255, 255, 0.90);
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+ 
+  height: 320px;
+  width: 500px;
+  
+  
+  
+}
+
+
+
+.producto-data {
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  padding: 30px;
+  height: 100%;
+  float: left;
+  width: 38%;
+  
+}
+
+#contenedor .producto-data h1{
+  font-family: 'Bebas Neue', cursive;
+  display: inline-block;
+  position: relative;
+  font-size: 30px;
+  color: #344055;
+  margin: 0;
+  
+}
+#contenedor .producto-data p {
+font-family: 'EB Garamond', serif;
+  text-align: center;
+  font-size: 19px;
+  color: #7d7d7d;
+  padding-top: 23px;
+}
+.control{
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  
+}
+.btn {
+
+  transform: translateY(0px);
+  transition: 0.3s linear;
+  background:  #8b0186a4;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #eee;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.btn:hover{transform: translateY(-6px);
+  background: #8b0186c5;}
+
+.btn span {
+  font-family: 'Farsan', cursive;
+  transition: transform 0.3s;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  margin:0;
+  
+}
+.btn .precio{
+  background: #333;
+  border: 0;
+  margin: 0;
+} 
+
+.btn .precio {
+  transform: translateX(-10%); padding-right: 15px;
+}
+
+
+
+.btn .comprar {
+  z-index: 3; font-weight: bolder;
+  
+}
+
+.btn:hover .precio {transform: translateX(-110%);}
+
+
+
+
+
+.producto-imagen {
+  transition: all 0.3s ease-out;
+  display: inline-block;
+  position: relative;
+  left: 30px;
+  overflow: hidden;
+  height: 100%;
+ 
+  width: 50%;
+  display: inline-block;
+}
+
+.milka1 img {
+  width: 300px;
+  height: 100%;
+  
+}
+.milka2 img{
+  
+  width: 290px;
+  height: 90%;
+  margin-top: 6%;
+}
+.milka3 img{
+  width: 150px;
+  height: 100%;
+  transform: translateX(10%);
+
+
+}
+.milka4 img{
+  width: 280px;
+  height: 92%;
+  margin-top: 5%;
+  
+}
+.milka5 img{
+  width: 300px;
+  height: 100%;
+}
+.milka6 img{
+  width: 285px;
+  height: 94%;
+  margin-top: 3%;
+}
+.milka7 img{
+  width: 155px;
+  height: 100%;
+  transform: translateX(15%);
+}
+.milka8 img{
+  width: 280px;
+  height: 90%;
+  margin-top: 5%;
+}
+.milka9 img{
+  width: 155px;
+  height: 100%;
+  transform: translateX(12%);
+}
+.milka10 img{
+  width: 160px;
+  height: 100%;
+  transform: translateX(9%);
+}
+.milka11 img{
+  transform: translateX(11%);
+  height: 100%;
+}
+.milka12 img{
+  width: 125px;
+  height: 90%;
+  margin-top: 6%;
+  transform: translateX(12%);
+ 
+}
+.producto-imagen img{
+  transition: transform 0.4s;
+}
+.producto-imagen :hover{
+  transform:translateX(-15%);
+}
+
+
+
+.btn:hover .comprar{
+ transform: translateX(-35%);
+}
