@@ -10,43 +10,43 @@ for (const nombre of nombres) {
 
 }
 
-const chocolates = [
-    {id:1001, tipo: 'oreo', precio: 700},
-    {id:1002, tipo: 'blanco', precio: 740},
-    {id:1003, tipo: 'almendra', precio: 840},
-    {id:1004, tipo: 'castaña', precio: 820},
-    {id:1005, tipo: 'clasico', precio: 750},
-    {id:1006, tipo: 'combinado', precio: 750}
-];
+
+const botonComprar = document.querySelectorAll('.comprar')
+
+const carrito = document.querySelector('.carrito')
 
 
-function inventario(array) {
-    for (let i = 0; i < array.length; i++) {
-        console.log(array[i])
-        
+botonComprar.forEach((comprar) => {
+    comprar.addEventListener('click', alCarrito);
+    });
+
+    function alCarrito(evento) {
+        const boton = evento.target;
+        const tarjeta = boton.closest('.tarjeta')
+
+        const tarjetaTitulo = tarjeta.querySelector('.tarjeta-titulo').textContent;
+        const tarjetaPrecio = tarjeta.querySelector('.precio').textContent;
+        const tarjetaImg = tarjeta.querySelector('.tarjeta-img').src;
+
+        const chocolateNuevo = document.createElement('div');
+        chocolateNuevo.classList.add ('carrito-compra')
+        const contenidoTajeta = ` <div class="carrito-img">
+                                    <img src=${tarjetaImg} alt="">
+                                 </div>
+                                <div class="carrito-titulo">
+                                  <h4>${tarjetaTitulo}</h6>
+                                 </div>
+                                 <div class="carrito-precio">
+                                   <h4>${tarjetaPrecio}</h6>
+                                 </div>
+                                 <div class="carrito-cancelar">
+                                   <input type="number" value="1">
+                                  <button>
+                                     X
+                                   </button>
+                                 </div>`;
+ 
+         chocolateNuevo.innerHTML = contenidoTajeta;
+         carrito.append(chocolateNuevo);
     }
-    
-}
 
-chocolates.sort((a, b) => {
-    if (a.precio > b.precio) {
-        return 1;
-    }
-    else if (a.precio < b.precio) {
-        return -1;
-    }
-    else {
-        return 0;
-    }
-})
-
-console.log(chocolates)
-
-
-const comprar = document.querySelector('#productos');
-
-comprar.addEventListener('click', (e) => {
-    if(e.target.className === "comprar"){
-    console.log('comprado')
-    }
-});
