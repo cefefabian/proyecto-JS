@@ -11,12 +11,9 @@ background-attachment: fixed;
 background-size: cover;
 }
 
-.fondo{
-  width: 100px;
-}
 
 .caja{
-background-color: #8b0186c5;
+  background-color: #8b0186c5;
 height: 100px;
 position: absolute;
 border-radius: 20px;
@@ -27,10 +24,6 @@ align-items: center;
 display: flex;
 height: 100px;
 justify-content: space-around;
-/* 
--webkit-box-shadow: 0px 22px 81px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 22px 81px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 22px 81px 0px rgba(0,0,0,0.75); */
 
 }   
 .caja h1{
@@ -45,16 +38,7 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Rubik', sans-serif;
 font-size: 31px;
 }
-.logo{
-  cursor: pointer;
-  border-radius: 5px;
-  position: absolute;
-  top: 14%;
-  left: 73%;
-  width: 20px;
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.90);;
-}
+
 .contador{
   position: relative;
   bottom: 70%;
@@ -63,25 +47,19 @@ font-size: 31px;
 
 .alert{
   text-align: center;
-  position: absolute;
+  position: fixed;
   top: 23%;
   left: 25%;
   right: 25%;
-  background-color: #ffcaca;
-  height: 50px;
-  width: 50%;
-  border-radius: 15px;
-  margin-bottom:-181px ;
-}
-
-.alert h3{
-font-size: 17px;
-font-family: 'Montserrat', sans-serif;
+  background: #ffcaca !important;
+  border-radius: 10px !important;
+  z-index: 100;
+  color: #8b0186c5 !important;
+  font-family: 'Montserrat', sans-serif;
 font-family: 'Pacifico', cursive;
 font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;
 font-family: 'Rubik', sans-serif;
-color: #8b0186c5;
 }
 
 .visible{
@@ -119,11 +97,10 @@ grid-template-areas:
   transition: all 0.3s ease-out;
   
 }
-/* .btn2:hover{
-transform: scale(1.1);
+.btn2:hover{
 opacity: 90%;
 
-} */
+}
 
 #contenedor{
   box-shadow: 0 15px 30px 1px grey;
@@ -134,9 +111,6 @@ opacity: 90%;
  
   height: 320px;
   width: 500px;
-  
-  
-  
 }
 
 
@@ -212,19 +186,12 @@ font-family: 'EB Garamond', serif;
 .btn .precio {
   transform: translateX(-10%); padding-right: 15px;
 }
-
-
-
 .btn .comprar {
   z-index: 3; font-weight: bolder;
   
 }
 
 .btn:hover .precio {transform: translateX(-110%);}
-
-
-
-
 
 .producto-imagen {
   transition: all 0.3s ease-out;
@@ -317,11 +284,12 @@ font-family: 'EB Garamond', serif;
  transform: translateX(-35%);
 }
 
+/* carrito */
 
 .carrito{
   height: auto;
   padding-bottom: 5px;
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
   border-radius: 30px 30px 0 0;
   background-color: rgba(255, 255, 255, 0.329);
@@ -350,6 +318,15 @@ font-family: 'Rubik', sans-serif;
   padding: 0;
   margin: 20px auto 0 auto;
 }
+.linea2{
+  border-top: 1px solid rgba(0, 0, 0, 0.377);
+  height: 2px;
+  max-width: 100%;
+  padding: 0;
+  margin: 20px auto 0 auto;
+  position: relative;
+  bottom: 39px;
+}
 .chocolate-info{
   display: flex;
   justify-content: space-around;
@@ -361,6 +338,27 @@ color:#7d7d7d;
 font-family: 'EB Garamond', serif;
 
 }
+.carrito-cancelar button{
+  background-color:#ff2726;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  color: wheat;
+  cursor: pointer;
+  opacity: 90%;
+  transition: all 0.3s ease-out;
+}
+.carrito-cancelar button:hover{
+opacity: 100%;
+}
+
+.cantidad{
+  border: none;
+  height: 25px;
+  
+}
+
 .carrito-compra {
   margin: 5% 3.5% 5% 6%;
   display: grid; 
@@ -370,14 +368,15 @@ font-family: 'EB Garamond', serif;
   gap: 1px 1px; 
   grid-template-areas: 
     "carrito-img carrito-titulo carrito-precio carrito-cancelar"; 
+    
 }
 .carrito-img{
   grid-area: carrito-img;
 
 }
 .carrito-img img{
-  width: 100px;
-  height: 200px;
+  width: 75px;
+  height: 150px;
   border-radius: 10px;
   margin-top: 0;
 
@@ -414,7 +413,7 @@ font-family: 'EB Garamond', serif;
 .contenedor-precio-total{
   border-radius: 0 0 30px 30px ;
   width: 60%;
-  height: auto;
+  height: 80px;
   padding: 20px 0 20px 0;
   background-color: rgba(255, 255, 255, 0.329);
   margin: 0 auto;
@@ -423,4 +422,27 @@ font-family: 'EB Garamond', serif;
 .preciototal{
 margin-left: 12%;
 }
-
+.compra-final{
+position: relative;
+left: 70%;
+bottom: 55%;
+width: 100px;
+}
+.compra-final button{
+  transition: 0.3s linear;
+  background:  rgb(26, 25, 25);
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #eee;
+  padding: 0;
+  margin: 0;
+  width: 75px;
+  height: 30px;
+}
+.compra-final button:hover{
+  background-color: black;
+  
+}

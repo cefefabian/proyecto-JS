@@ -12,48 +12,30 @@ if (usuarioEnLS != null) {
 let saludo = document.querySelector(".caja h1")
 saludo.innerHTML = `${usuario} bienvenido a milkaShop`;
 
-
-let logoCarrito = document.querySelector('.logo')
-logoCarrito.innerHTML = `<p class="contador">0</p>
-`
-
-const claseLogoCarrito = document.querySelector('.contador').textContent
-let btnCarrito = document.querySelector('#productos');
-let contador = document.querySelector(".contador")
-let sumar = 1;
-
-document.querySelector(".contador").innerText;
-if(claseLogoCarrito === '0'){
-  logoCarrito.hidden = true
-  contador.hidden = true
-}
-btnCarrito.addEventListener("click", function (e) {
-  if(e.target.className === "comprar"){
-    logoCarrito.hidden = false
-  contador.hidden = false
-	contador.innerText = parseInt(contador.innerText) + sumar;
-  }
-  
-});
-
 let tarjetaTitulo = document.querySelector('.tarjeta-titulo').textContent
-
+let btnCarrito = document.querySelector('#productos');
 let main = document.querySelector('main')
 
 btnCarrito.addEventListener('click', (e) =>{
   if (e.target.className === "comprar") {
-  const alert = document.querySelector('#alert')
-  alert.innerHTML = `<div class= "alert">
-                        <h3>Chocolate ${tarjetaTitulo} añadido al carrito</h3>
-                      </div>`
-                               
-  setTimeout(function () {
-    alert.classList.add("visible");
-  }, 2000);
-  alert.classList.remove("visible");
-  }
+    Toastify({
+      text: "Chocolate añadido al carrito correctamente",
+      duration: 2500,
+      className: 'alert'
+      }).showToast();
+  }                       
 })
 
+class Chocolates{
+  constructor(tipo, precio, img){
+    this.tipo = tipo,
+    this.precio = precio,
+    this.img = img
+  }
+
+}
+
+const arrChocolates = []
 
 
 const botonComprar = document.querySelectorAll('.comprar')
@@ -63,45 +45,59 @@ const carrito = document.querySelector('.carrito')
 
 botonComprar.forEach((comprar) => {
     comprar.addEventListener('click', alCarrito);
-    });
 
     function alCarrito(evento) {
-        const boton = evento.target;
-        const tarjeta = boton.closest('.tarjeta')
+      const boton = evento.target;
+      const tarjeta = boton.closest('.tarjeta')
 
         const tarjetaTitulo = tarjeta.querySelector('.tarjeta-titulo').textContent;
         const tarjetaPrecio = tarjeta.querySelector('.precio').textContent;
         const tarjetaImg = tarjeta.querySelector('.tarjeta-img').src;
 
-        htmlCarrito(tarjetaTitulo, tarjetaPrecio, tarjetaImg)
+        const Chocolate = new Chocolates(tarjetaTitulo, tarjetaPrecio, tarjetaImg)
+        arrChocolates.push(Chocolate)
+        generarHtml(arrChocolates)      
     }
+  })
 
 
-      function htmlCarrito(tarjetaTitulo, tarjetaPrecio, tarjetaImg) {
+      function generarHtml(arr) {
         
         const chocolateNuevo = document.createElement('div');
         chocolateNuevo.classList.add ('carrito-compra')
-        const contenidoTajeta = ` <div class="carrito-img">
-                                    <img src=${tarjetaImg} alt="">
+        arr.map( el => chocolateNuevo.innerHTML = ` <div class="carrito-img">
+                                    <img src=${el.img} alt="">
                                  </div>
                                 <div class="carrito-titulo">
-                                  <h4>${tarjetaTitulo}</h6>
+                                  <h4>${el.tipo}</h6>
                                  </div>
                                  <div class="carrito-precio">
-                                   <h4>${tarjetaPrecio}</h6>
+                                   <h4>${el.precio}</h6>
                                  </div>
                                  <div class="carrito-cancelar">
                                    <input class="cantidad" type="number" value="1">
-                                  <button>
+                                  <button class="eliminar">
                                      X
                                    </button>
-                                 </div>`;
- 
-         chocolateNuevo.innerHTML = contenidoTajeta;
-         carrito.append(chocolateNuevo); 
+                                 </div>`
+        
+        )
+        carrito.append(chocolateNuevo)
 
+        
+        
+        chocolateNuevo
+          .querySelector('.eliminar')
+          .addEventListener('click', eliminarChocolate) 
+         
+
+         chocolateNuevo
+         .querySelector('.cantidad')
+         .addEventListener('change', quantityChanged)
+        
          totalDelCarrito()
       }
+      const container = document.getElementsByClassName('carrito-compra')
 
       function totalDelCarrito() {
         let total = 0
@@ -119,9 +115,28 @@ botonComprar.forEach((comprar) => {
           total = total + soloPrecio * cantidad2
         });
       
-        precioTotalDelCarrito.innerHTML = `Total ${total}$`;
+        precioTotalDelCarrito.innerHTML = `Total 
+        ${total}$`;
+        
       }
-      
+
+      function eliminarChocolate(evento) {
+        const botonEliminar = evento.target;
+        botonEliminar.closest('.carrito-compra').remove()
+        Toastify({
+          text: "Chocolate eliminado del carrito correctamente",
+          duration: 2500,
+          className: 'alert'
+          }).showToast();
+        totalDelCarrito()
+      }
+
+      function quantityChanged(evento) {
+        const input = evento.target;
+        input.value <= 0 ? (input.value = 1) : null
+        totalDelCarrito()
+      }
+
       
     
     
