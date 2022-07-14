@@ -35,8 +35,14 @@ class Chocolates{
 
 }
 
-const arrChocolates = []
+const arrChocolates = JSON.parse( localStorage.getItem("array")) || [];
 
+      window.addEventListener("load", () => {
+        if (arrChocolates.length > 0) {
+          generarHtml(arrChocolates)
+        }
+      })
+      
 
 const botonComprar = document.querySelectorAll('.comprar')
 
@@ -56,8 +62,13 @@ botonComprar.forEach((comprar) => {
 
         const Chocolate = new Chocolates(tarjetaTitulo, tarjetaPrecio, tarjetaImg)
         arrChocolates.push(Chocolate)
-        generarHtml(arrChocolates)      
+        generarHtml(arrChocolates)    
+        
+        localStorage.setItem("array", JSON.stringify(arrChocolates))
+        console.log(arrChocolates);
     }
+    
+    
   })
 
 
@@ -65,7 +76,7 @@ botonComprar.forEach((comprar) => {
         
         const chocolateNuevo = document.createElement('div');
         chocolateNuevo.classList.add ('carrito-compra')
-        arr.map( el => chocolateNuevo.innerHTML = ` <div class="carrito-img">
+        arr.map((el) => chocolateNuevo.innerHTML = ` <div class="carrito-img">
                                     <img src=${el.img} alt="">
                                  </div>
                                 <div class="carrito-titulo">
@@ -117,7 +128,7 @@ botonComprar.forEach((comprar) => {
       
         precioTotalDelCarrito.innerHTML = `Total 
         ${total}$`;
-        
+      
       }
 
       function eliminarChocolate(evento) {
@@ -138,6 +149,9 @@ botonComprar.forEach((comprar) => {
       }
 
       
+        
+      
+
     
     
 

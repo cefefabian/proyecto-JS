@@ -356,6 +356,7 @@ opacity: 100%;
 .cantidad{
   border: none;
   height: 25px;
+
   
 }
 
@@ -445,4 +446,89 @@ width: 100px;
 .compra-final button:hover{
   background-color: black;
   
+}
+
+
+
+
+/* finalizar compra */
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+.form{
+  background-color: wheat;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 3.5em 1.5em;
+  height: 300px;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  display: flex;
+}
+.form-container{
+  width: 100%;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 100%;
+}
+input{
+  font-size: 1rem;
+  padding: 5px 16px;
+  outline: none;
+  border: none;
+  border: solid 1px  #7d7d7d;
+  border-radius: 5px;
+}
+.btn-comprar{
+  background-color: #8b0186a4;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+.form-titulo{
+  text-align: center;
+  color: rgb(26, 25, 25);
+}
+.redes{
+  position: absolute;
+  left: 70%;
+  top: 30%;
+}
+.redes-container{
+  background-color: wheat;
+  width: 300px;
+  height: 200px;
+  padding-top: 40px;
+  border-radius: 20px;
+}
+.redes-container h3{
+  text-align: center;
+ 
+}
+.redes-links{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.link1{
+  width: 50px;
+  height: 50px;
+}
+.link2{
+  width: 50px;
+  height: 50px;
+}
+.link3{
+  width: 50px;
+  height: 50px;
 }
