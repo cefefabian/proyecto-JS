@@ -4,13 +4,14 @@ let usuarioEnLS = localStorage.getItem('usuario')
 
 if (usuarioEnLS != null) {
   usuario = usuarioEnLS
-} else {
+} 
+else {
   usuario = prompt('ingrese')
   localStorage.setItem('usuario', usuario)
 
 }
 let saludo = document.querySelector(".caja h1")
-saludo.innerHTML = `${usuario} bienvenido a milkaShop`;
+saludo.innerHTML = `${usuario} Bienvenido a Milkashop`;
 
 let tarjetaTitulo = document.querySelector('.tarjeta-titulo').textContent
 let btnCarrito = document.querySelector('#productos');
@@ -26,6 +27,22 @@ btnCarrito.addEventListener('click', (e) =>{
   }                       
 })
 
+const divBienvenidaPadre = document.querySelector('#div-bienvenida-padre')
+
+fetch('/js/chocolates.json')
+    .then( (res) => res.json())
+    .then( (data) => {
+
+        data.forEach((alpes) => {
+            const divBienvenida = document.createElement('div')
+            divBienvenida.classList.add('alpes')
+            divBienvenida.innerHTML = `
+            <h4>${alpes.alpes}</h4>`
+   
+            divBienvenidaPadre.append(divBienvenida)
+        })
+    })
+
 class Chocolates{
   constructor(tipo, precio, img){
     this.tipo = tipo,
@@ -34,15 +51,8 @@ class Chocolates{
   }
 
 }
-
-const arrChocolates = JSON.parse( localStorage.getItem("array")) || [];
-
-      window.addEventListener("load", () => {
-        if (arrChocolates.length > 0) {
-          generarHtml(arrChocolates)
-        }
-      })
-      
+  
+const arrChocolates = []
 
 const botonComprar = document.querySelectorAll('.comprar')
 
@@ -64,17 +74,13 @@ botonComprar.forEach((comprar) => {
         arrChocolates.push(Chocolate)
         generarHtml(arrChocolates)    
         
-        localStorage.setItem("array", JSON.stringify(arrChocolates))
-        console.log(arrChocolates);
-    }
-    
-    
+        
+    }   
   })
 
 
-      function generarHtml(arr) {
-        
-        const chocolateNuevo = document.createElement('div');
+      function generarHtml(arr) {    
+ const chocolateNuevo = document.createElement('div');
         chocolateNuevo.classList.add ('carrito-compra')
         arr.map((el) => chocolateNuevo.innerHTML = ` <div class="carrito-img">
                                     <img src=${el.img} alt="">
@@ -94,9 +100,7 @@ botonComprar.forEach((comprar) => {
         
         )
         carrito.append(chocolateNuevo)
-
-        
-        
+ 
         chocolateNuevo
           .querySelector('.eliminar')
           .addEventListener('click', eliminarChocolate) 
@@ -107,12 +111,23 @@ botonComprar.forEach((comprar) => {
          .addEventListener('change', quantityChanged)
         
          totalDelCarrito()
-      }
-      const container = document.getElementsByClassName('carrito-compra')
 
+         const btnn = document.querySelector('.compra-final-input')
+         if (arrChocolates.length != 0) {
+           btnn.removeAttribute('disabled')
+           btnn.classList.add('btnn')
+          }
+       
+      }
+      
+    
+
+      const container = document.getElementsByClassName('carrito-compra')
+    
       function totalDelCarrito() {
         let total = 0
         const precioTotalDelCarrito = document.querySelector('.preciototal')
+        
 
         const tarjeta = document.querySelectorAll('.carrito-compra')
 
@@ -128,25 +143,40 @@ botonComprar.forEach((comprar) => {
       
         precioTotalDelCarrito.innerHTML = `Total 
         ${total}$`;
-      
+             
+        function preciototal() {
+          localStorage.setItem('precio', total)  
+      }
+        preciototal()
+  
       }
 
-      function eliminarChocolate(evento) {
-        const botonEliminar = evento.target;
-        botonEliminar.closest('.carrito-compra').remove()
-        Toastify({
-          text: "Chocolate eliminado del carrito correctamente",
-          duration: 2500,
-          className: 'alert'
-          }).showToast();
-        totalDelCarrito()
-      }
 
-      function quantityChanged(evento) {
-        const input = evento.target;
-        input.value <= 0 ? (input.value = 1) : null
-        totalDelCarrito()
-      }
+
+    function eliminarChocolate(evento) {
+      const botonEliminar = evento.target;
+      botonEliminar.closest('.carrito-compra').remove()
+      Toastify({
+        text: "Chocolate eliminado del carrito correctamente",
+        duration: 2500,
+        className: 'alert'
+        }).showToast();
+      totalDelCarrito()
+    }
+
+    function quantityChanged(evento) {
+      const input = evento.target;
+      input.value <= 0 ? (input.value = 1) : null
+      totalDelCarrito()
+    }
+
+console.log(arrChocolates);
+
+
+
+
+  
+
 
       
         

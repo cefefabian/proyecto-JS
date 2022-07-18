@@ -82,6 +82,8 @@ grid-template-areas:
   gap: 50px;
   width: 1000px;
   margin: 250px auto;
+  position: relative;
+  right: 25px;
   }
 .btn2{
   background-image: url(	https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-shopping-cart.png);
@@ -286,6 +288,23 @@ font-family: 'EB Garamond', serif;
 
 /* carrito */
 
+.alpes{
+  text-align: center;
+  margin-bottom: 50px;
+  
+  text-transform: capitalize;
+color: #f8b8b8;
+
+font-weight: 600;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Rubik', sans-serif;
+font-size: 29px;
+
+}
+
 .carrito{
   height: auto;
   padding-bottom: 5px;
@@ -348,6 +367,7 @@ font-family: 'EB Garamond', serif;
   cursor: pointer;
   opacity: 90%;
   transition: all 0.3s ease-out;
+ 
 }
 .carrito-cancelar button:hover{
 opacity: 100%;
@@ -355,8 +375,8 @@ opacity: 100%;
 
 .cantidad{
   border: none;
-  height: 25px;
-
+  height: 20px;
+  font-family: 'Farsan', cursive;
   
 }
 
@@ -387,9 +407,13 @@ opacity: 100%;
   color: #333;  
    position: relative;
   top: 45%;
+  width: 150px;
+
 }
 .carrito-titulo h4{
   margin-top: 0;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 19px;
 }
 .carrito-precio{
   grid-area: carrito-precio;
@@ -399,6 +423,7 @@ opacity: 100%;
 }
 .carrito-precio h4{
   margin-top: 0;
+  font-family: 'Farsan', cursive;
 }
 .carrito-cancelar{
   grid-area: carrito-cancelar;
@@ -407,8 +432,8 @@ opacity: 100%;
   top: 45%; 
 }
 .carrito-cancelar input{
-  width: 40px;
-
+  width: 10px;
+  height: 25px;
 }
 
 .contenedor-precio-total{
@@ -427,26 +452,29 @@ margin-left: 12%;
 position: relative;
 left: 70%;
 bottom: 55%;
-width: 100px;
+width: 80px;
+height: 30px;
 }
-.compra-final button{
-  transition: 0.3s linear;
-  background:  rgb(26, 25, 25);
-  border-radius: 5px;
-  overflow: hidden;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  color: #eee;
-  padding: 0;
-  margin: 0;
-  width: 75px;
-  height: 30px;
-}
-.compra-final button:hover{
-  background-color: black;
+.compra-final-input {
+  font-family: 'Farsan', cursive;
+  font-size: 16px;
   
 }
+.btnn{
+  background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
+  color: rgb(15, 15, 15);
+  cursor: pointer;
+}
+.preciototal{
+  font-family: 'Farsan', cursive;
+  font-size: 16px;
+  color: rgb(15, 15, 15);
+}
+
+
+
+
+
 
 
 
@@ -464,17 +492,18 @@ input[type=number]::-webkit-outer-spin-button {
 .form{
   background-color: wheat;
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
   border-radius: 20px;
   padding: 3.5em 1.5em;
   height: 300px;
   position: absolute;
-  left: 20%;
-  top: 10%;
+  left: 30%;
+  top: 15%;
   display: flex;
 }
 .form-container{
-  width: 100%;
+  margin: 0 auto;
+  width: 50%;
   display: grid;
   gap: 1em;
   grid-template-columns: 100%;
@@ -487,6 +516,16 @@ input{
   border: solid 1px  #7d7d7d;
   border-radius: 5px;
 }
+.input-tarjeta{
+  position: relative;
+  right: 30%;
+}
+.input-cvu{
+  position: relative;
+  bottom: 46px;
+  left: 80%;
+  width: 30%;
+}
 .btn-comprar{
   background-color: #8b0186a4;
   cursor: pointer;
@@ -494,41 +533,27 @@ input{
   border-radius: 5px;
   padding: 10px;
   text-align: center;
+  width: 80%;
+  height: 40px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 40px;
 }
 .form-titulo{
   text-align: center;
   color: rgb(26, 25, 25);
+  font-family: 'Montserrat', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Rubik', sans-serif;
 }
-.redes{
-  position: absolute;
-  left: 70%;
-  top: 30%;
-}
-.redes-container{
-  background-color: wheat;
-  width: 300px;
-  height: 200px;
-  padding-top: 40px;
-  border-radius: 20px;
-}
-.redes-container h3{
+.price{
   text-align: center;
- 
+  font-family: 'Montserrat', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Rubik', sans-serif;
 }
-.redes-links{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 50px;
-}
-.link1{
-  width: 50px;
-  height: 50px;
-}
-.link2{
-  width: 50px;
-  height: 50px;
-}
-.link3{
-  width: 50px;
-  height: 50px;
-}
+
