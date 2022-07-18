@@ -29,7 +29,7 @@ btnCarrito.addEventListener('click', (e) =>{
 
 const divBienvenidaPadre = document.querySelector('#div-bienvenida-padre')
 
-fetch('../chocolates.json')
+fetch('chocolates.json')
     .then( (res) => res.json())
     .then( (data) => {
 
