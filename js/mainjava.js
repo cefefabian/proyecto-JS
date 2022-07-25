@@ -6,7 +6,7 @@ if (usuarioEnLS != null) {
   usuario = usuarioEnLS
 } 
 else {
-  usuario = prompt('ingrese')
+  usuario = prompt('Ingrese su nombre/apodo')
   localStorage.setItem('usuario', usuario)
 
 }
