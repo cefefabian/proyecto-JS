@@ -2,32 +2,43 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Pacifico&family=Poppins:wght@200&family=Roboto:ital@1&family=Rubik&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
 body {
 background: #DFC2F2;
 background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
 background-attachment: fixed;	
 background-size: cover;
+margin: 0;
 }
 
-
 .caja{
-  background-color: #8b0186c5;
+  background-color: #7d69ac;
+  box-shadow: 0 0 5px 0 #582774;
+  width: 100%;
+  height: 100px;
+  position: sticky;
+top: 0;
+left: 0;
+right: 0;
 height: 100px;
-position: absolute;
-border-radius: 20px;
-top: 5%;
-left: 20%;
-right: 20%;
-align-items: center;
-display: flex;
-height: 100px;
-justify-content: space-around;
-
+margin-top: 20px;
+z-index: 100;
+transition: all 0.7s ease-out;
 }   
-.caja h1{
-text-transform: capitalize;
+.header{
+  display: flex;
+height: 100%;
+align-items: center;
+  
+justify-content: space-evenly;
+  position: relative;
+  right: 45px;
+}
+.header h1{
+  text-transform: capitalize;
 color: #ffcaca;
 opacity: 70%;
 font-weight: 600;
@@ -39,12 +50,32 @@ font-family: 'Rubik', sans-serif;
 font-size: 31px;
 }
 
-.contador{
-  position: relative;
-  bottom: 70%;
-  left: 25%;
-}
 
+.milka-info{
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  right: 10%;
+  width: 80%;
+}
+.milka-info-div{
+  width: 75%;
+  margin: 0 auto;
+}
+.milka-info-div h1{
+  color: #3b2774;
+ font-size: 44px;
+ font-family: 'EB Garamond', serif;
+ width: 60%;
+ font-weight: 500;
+}
+.milka-info-div h3{
+  color: #3b2774;
+  font-family: 'PT Serif', serif;
+  font-size: 20px;
+  line-height: 1.25em;
+  font-weight: 500;
+}
 .alert{
   text-align: center;
   position: fixed;
@@ -54,7 +85,7 @@ font-size: 31px;
   background: #ffcaca !important;
   border-radius: 10px !important;
   z-index: 100;
-  color: #8b0186c5 !important;
+  color: #644b9e !important;
   font-family: 'Montserrat', sans-serif;
 font-family: 'Pacifico', cursive;
 font-family: 'Poppins', sans-serif;
@@ -81,7 +112,8 @@ grid-template-areas:
   "11 12"; 
   gap: 50px;
   width: 1000px;
-  margin: 250px auto;
+  height: auto;
+  margin: 550px auto 200px;
   position: relative;
   right: 25px;
   }
@@ -151,10 +183,9 @@ font-family: 'EB Garamond', serif;
   
 }
 .btn {
-
   transform: translateY(0px);
   transition: 0.3s linear;
-  background:  #8b0186a4;
+  background:  #7d69ac;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -168,7 +199,7 @@ font-family: 'EB Garamond', serif;
 }
 
 .btn:hover{transform: translateY(-6px);
-  background: #8b0186c5;}
+  background: #644b9e }
 
 .btn span {
   font-family: 'Farsan', cursive;
@@ -308,10 +339,10 @@ font-size: 29px;
 .carrito{
   height: auto;
   padding-bottom: 5px;
-  width: 70%;
+  width: 65%;
   margin: 0 auto;
-  border-radius: 30px 30px 0 0;
-  background-color: rgba(255, 255, 255, 0.329);
+  border-radius: 10px 10px 0 0;
+  background-color:  rgba(255, 255, 255, 0.90);
 }
 
 
@@ -375,16 +406,20 @@ opacity: 100%;
 
 .cantidad{
   border: none;
-  height: 20px;
   font-family: 'Farsan', cursive;
-  
-}
+  font-size: 15px;
+  min-width: 20px;
+  font-weight: bold;
+  position: relative;
+  top: 2.5px;
+} 
+
 
 .carrito-compra {
   margin: 5% 3.5% 5% 6%;
   display: grid; 
   grid-auto-columns: 1fr; 
-  grid-template-columns: 12% 35% 35% 10%; 
+  grid-template-columns: 11.3% 35% 35% 10%; 
   grid-template-rows: 1fr; 
   gap: 1px 1px; 
   grid-template-areas: 
@@ -437,11 +472,11 @@ opacity: 100%;
 }
 
 .contenedor-precio-total{
-  border-radius: 0 0 30px 30px ;
-  width: 60%;
+  border-radius: 0 0 10px 10px ;
+  width: 65%;
   height: 80px;
   padding: 20px 0 20px 0;
-  background-color: rgba(255, 255, 255, 0.329);
+  background-color:  rgba(255, 255, 255, 0.90);
   margin: 0 auto;
   margin-bottom: 50px;
 }
@@ -453,16 +488,23 @@ position: relative;
 left: 70%;
 bottom: 55%;
 width: 80px;
-height: 30px;
+height: 40px;
+}
+.compra-final-a{
+  border: #333 1px;
 }
 .compra-final-input {
   font-family: 'Farsan', cursive;
   font-size: 16px;
-  
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  padding-bottom: 10px;
 }
 .btnn{
   background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
   color: rgb(15, 15, 15);
+  
   cursor: pointer;
 }
 .preciototal{
@@ -470,11 +512,6 @@ height: 30px;
   font-size: 16px;
   color: rgb(15, 15, 15);
 }
-
-
-
-
-
 
 
 
@@ -490,31 +527,37 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .form{
-  background-color: wheat;
+  background-color: #eee;
   width: 90%;
   max-width: 500px;
-  border-radius: 20px;
   padding: 3.5em 1.5em;
-  height: 300px;
   position: absolute;
   left: 30%;
-  top: 15%;
-  display: flex;
+  top: 0;
+  bottom: 0;
+  
 }
 .form-container{
-  margin: 0 auto;
+  height: 300px;
+  margin: 20% auto;
   width: 50%;
   display: grid;
   gap: 1em;
   grid-template-columns: 100%;
+  
 }
-input{
+.input{
   font-size: 1rem;
   padding: 5px 16px;
   outline: none;
   border: none;
-  border: solid 1px  #7d7d7d;
+  border: solid 2px  #7d69ac;
   border-radius: 5px;
+  background: #eee;
+  
+}
+.input:focus{
+  border: solid 2px  #644b9e;
 }
 .input-tarjeta{
   position: relative;
@@ -522,12 +565,11 @@ input{
 }
 .input-cvu{
   position: relative;
-  bottom: 46px;
-  left: 80%;
+  bottom: 150%;
+  left: 79%;
   width: 30%;
 }
 .btn-comprar{
-  background-color: #8b0186a4;
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -538,6 +580,18 @@ input{
   margin: 0 auto;
   position: relative;
   bottom: 40px;
+  transition: all 0.3s ease-out;
+  background: #7d69ac;
+  color: #eee;
+  font-family: 'Montserrat', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Rubik', sans-serif;
+} 
+.btn-comprar:hover{
+  background: #644b9e;
+ 
 }
 .form-titulo{
   text-align: center;
